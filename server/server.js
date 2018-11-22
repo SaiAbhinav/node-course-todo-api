@@ -1,3 +1,5 @@
+require('./config/config')
+
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -7,7 +9,7 @@ var { mongoose } = require('./db/mongoose');
 var { Todo } = require('./models/todo');
 var { User } = require('./models/user');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT;
 
 var app = express();
 
@@ -107,7 +109,7 @@ app.patch('/todos/:id', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Started up at port ${port}`);
+    console.log(`\nStarted up at port ${port}`);
 });
 
 module.exports = {
