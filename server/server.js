@@ -23,14 +23,10 @@ app.post('/todos', (req, res) => {
     });
 });
 
-app.get('/todos', (req, res) => {
-
-})
-
-app.get('/todo/:id', (req, res) => {
-
-})
-
 app.listen(port, () => {
     console.log(`Started on port ${port}`);
 });
+
+module.exports = {
+    app
+};
