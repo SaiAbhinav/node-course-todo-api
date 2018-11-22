@@ -64,14 +64,14 @@ app.delete('/todos/:id', (req, res) => {
             message: "ID not valid"
         });        
     }
-    Todo.findOneAndDelete(id).then((todo) => {
+    Todo.findByIdAndDelete(id).then((todo) => {
         if (!todo) {
             return res.status(404).send({
                 status: "404",
                 message: "Todo not found"
             });            
         }
-        res.send(todo);
+        res.send({ todo });
     }).catch((e) => {
         res.status(400).send({
             status: "400",
